@@ -45,7 +45,7 @@ export default {
   data: () => ({
     amount: "1",
     feedResult: "",
-    amounts: [".5", "1", "1.5", "2", "2.5", "3"],
+    amounts: [".5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5"],
     isFeeding: false
   }),
   methods: {

@@ -103,6 +103,15 @@
             </v-layout>
             <v-text-field
               v-if="settings.isUsingScale"
+              label="Scale Reference Unit"
+              placeholder=""
+              type="number"
+              v-model="settings.scaleReferenceUnit"
+              outlined
+            ></v-text-field>
+
+            <v-text-field
+              v-if="settings.isUsingScale"
               label="Full Bowl Weight (g)"
               placeholder=""
               type="number"
@@ -176,7 +185,7 @@ export default {
     feederId: 1,
     amount: "1",
     feedResult: "",
-    amounts: [".5", "1", "1.5", "2", "2.5", "3"],
+    amounts: [".5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5"],
     tempSettings: {},
     settings: {
       petName: "",
@@ -186,6 +195,7 @@ export default {
       feederName: "",
       defaultFeedAmount: 1,
       fullBowlWeight: 0.0,
+      scaleReferenceUnit: 1,
       cupDuration: 3.0,
       isUsingScale: false,
       isUsingAlexa: false,
