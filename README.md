@@ -1,4 +1,12 @@
-# Pet Feeder
+# Raspberry PI Dog Feeder
+This project was created with inspiration from Rob Peck's project (https://github.com/peckrob/petfeedd)  
+
+## Features:
+* Schedule daily feeds
+* See a log of feeds
+* Trigger with Alexa
+* Ability to integrate hx711 load cell for bowl weight (keeps from over feeding)
+* Login required
 
 ## Install required packages
 ```
