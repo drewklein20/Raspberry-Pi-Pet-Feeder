@@ -51,24 +51,28 @@ set hostname to petfeeder and reboot
 ### Clone source code
 ```
 cd ~/
-sudo git clone https://github.com/drewklein20/dog-feeder.git
-cd dog-feeder
+sudo git clone https://github.com/drewklein20/pet-feeder.git
+cd pet-feeder
 ```
 
 ### Build DB schema (in pet-feeder dir)
 ```
 sudo mysql < schema.sql
-
+```
+Then run
+```
 sudo mysql
+```
 
-# Enter each command below
-	USE FEEDER;
-	CREATE USER 'remote'@'localhost' IDENTIFIED BY 'PetFeeder2021!';
-	CREATE USER 'remote'@'%' IDENTIFIED BY 'PetFeeder2021!';
-	GRANT ALL PRIVILEGES ON * . * TO 'remote'@'localhost';
-	GRANT ALL ON *.* TO 'remote'@'%';
-	FLUSH PRIVILEGES;
-	exit;
+And enter each command below
+```
+USE FEEDER;
+CREATE USER 'remote'@'localhost' IDENTIFIED BY 'PetFeeder2021!';
+CREATE USER 'remote'@'%' IDENTIFIED BY 'PetFeeder2021!';
+GRANT ALL PRIVILEGES ON * . * TO 'remote'@'localhost';
+GRANT ALL ON *.* TO 'remote'@'%';
+FLUSH PRIVILEGES;
+exit;
 ```
 
 ### Build website (in pet-feeder dir)
@@ -78,4 +82,10 @@ sudo ./build.sh
 ```
 ### Login/config
 Go to http://petfeeder.local and login with username 'admin' and password 'password'
+
+### Configuring Alexa
+Log into the feeder and enable Alexa in the settings
+Go to https://sinric.com/ and create a free account
+Copy the synric API key ("Your API Key") and save it in the feeder settings for Synric API Key
+Create a new smart home decice on the synric site (device type: switch). Copy the deviceId and save it in the feeder settings for Synric DeviceId
 
