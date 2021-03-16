@@ -15,7 +15,7 @@ mydb = mysql.connector.connect(
 isUsingScale = False
 twoBowls = False
 currentWeight = 0
-fullBowlWeight = 0
+fullBowlWeight = 100
 
 dbcursor = mydb.cursor()
 dbcursor.execute("SELECT JSON_UNQUOTE(JSON_EXTRACT(preferences, '$.cupDuration')) as cupDuration, JSON_UNQUOTE(JSON_EXTRACT(preferences, '$.bowlWeight')) as cupDuration, JSON_UNQUOTE(JSON_EXTRACT(preferences, '$.twoBowls')) as twoBowls, JSON_UNQUOTE(JSON_EXTRACT(preferences, '$.isUsingScale')) as isUsingScale FROM Feeder.Settings;")
