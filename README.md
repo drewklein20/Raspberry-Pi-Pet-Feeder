@@ -34,7 +34,7 @@ sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 Change the IP to your own and save for this line
 ```
-bind-address            = 127.0.0.1
+bind-address            = 127.0.0.1 #Set to your device's IP
 ```
 restart mysql
 ```
