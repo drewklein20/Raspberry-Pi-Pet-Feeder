@@ -1,32 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+
+    <v-main>
+      <auth @authEvent="authEvent" v-if="!isAuthenticated"/>
+      <feeder v-else @authEvent="authEvent"/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Auth from './components/Auth.vue';
+import Feeder from "./components/Feeder";
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: "App",
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+    Feeder,
+    Auth
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  data: () => ({
+    isAuthenticated: false
+  }),
+  methods: {
+    authEvent(value){
+      this.isAuthenticated = value
+    }
+  }
+};
+</script>
+
+<style lang="scss">
+  .v-btn__content {
+    color: #0E1C36;
+    .v-icon {
+      color: #AFCBFF !important;
+    }
+  }
 </style>

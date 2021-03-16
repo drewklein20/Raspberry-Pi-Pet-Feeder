@@ -1,0 +1,71 @@
+<template>
+  <v-container>
+
+
+    
+    <v-card class="mx-auto" max-width="400">
+      <v-card-title>
+        Feed Now
+      </v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col>
+            <v-select
+              v-model="amount"
+              :items="amounts"
+              label="Feed Amount"
+              hint="Cups"
+              persistent-hint
+              outlined
+            ></v-select>
+          </v-col>
+
+          <v-col>
+            <v-layout align-center justify-center class="pt-2">
+            <v-btn rounded color="secondary" @click="feedRequest" :disabled="isFeeding">
+              Feed
+            </v-btn>
+            </v-layout>
+          </v-col>
+        </v-row>
+      </v-card-text>
+      <v-card-actions>
+        <v-layout align-center justify-center>
+          <p>{{ feedResult }}</p>
+        </v-layout>
+      </v-card-actions>
+    </v-card>
+  </v-container>
+</template>
+
+<script>
+export default {
+  name: "Feed",
+
+  data: () => ({
+    amount: "1",
+    feedResult: "",
+    amounts: [".5", "1", "1.5", "2", "2.5", "3"],
+    isFeeding: false
+  }),
+  methods: {
+    feedRequest() {
+      this.isFeeding = true
+      let cupOrCups = this.amount > 1 ? " cups " : " cup "
+      this.feedResult = "Dispensing " + this.amount + cupOrCups + "now!";
+      let body = "action=feed_now&amount=" + this.amount;
+      let apiUrl = process.env.VUE_APP_BACKEND_URL;
+      this.axios.post(apiUrl, body).then((response) => {
+        this.feedResult = response.data;
+        this.isFeeding = false
+        self.feedResult = "";
+      });
+
+      // var self = this;
+      // setTimeout(() => {
+      //   self.feedResult = "";
+      // }, 5000);
+    },
+  },
+};
+</script>

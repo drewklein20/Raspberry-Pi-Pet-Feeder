@@ -1,4 +1,4 @@
-# vue-feeder
+# compu-feed
 
 ## Project setup
 ```
