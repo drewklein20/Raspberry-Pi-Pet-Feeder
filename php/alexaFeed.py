@@ -21,8 +21,8 @@ dbcursor.execute(
 )
 dbresult = dbcursor.fetchone()
 
-apiStr = "apikey:" + string(dbresult[0])
-deviceStr = string(dbresult[1])
+apiStr = "apikey:" + str(dbresult[0])
+deviceStr = str(dbresult[1])
 encoded_u = base64.b64encode(apiStr.encode()).decode()
 
 def deviceAction(value, deviceName):
