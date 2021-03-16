@@ -96,9 +96,9 @@ Go to http://petfeeder.local and login with username 'admin' and password 'passw
 ## Configuring Alexa
 * Log into the feeder and enable Alexa in the settings
 * Go to https://sinric.com/ and create a free account
-* Copy the synric API key ("Your API Key") and save it in the feeder settings for Synric API Key
-* Create a new smart home decice on the synric site (device type: switch)
-* Copy the deviceId and save it in the feeder settings for Synric DeviceId
+* Copy the sinric API key ("Your API Key") and save it in the feeder settings for Sinric API Key
+* Create a new smart home device on the sinric site (device type: switch)
+* Copy the deviceId and save it in the feeder settings for Sinric DeviceId
 * Save the settings in the app
 
 * In the alexa app, add the sinric skill, then discover devices
