@@ -30,11 +30,11 @@ Type in Y to Remove test database and access to it
 Type in Y to Reload privilege tables now  
 
 
-## Edit mysql binded address (obtain your IP first)
+## Edit mysql binded address
 ```
 sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
-Change the IP to your own and save for this line
+Add a # before this line's text to comment it down
 ```
 bind-address            = 127.0.0.1 #Set to your device's IP
 ```
