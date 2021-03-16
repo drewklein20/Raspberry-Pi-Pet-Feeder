@@ -109,3 +109,11 @@ Add the following line to the bottom
 * * * * * sudo /usr/bin/python /var/www/html/php/cronFeed.py >> /var/www/html/php/cronLog.log 2>&1
 ```
 
+# Set proper timezone
+```
+sudo raspi-config
+```
+Set your timezone under Localization Options (US central is what I used)
+
+
+
