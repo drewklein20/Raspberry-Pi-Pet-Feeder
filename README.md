@@ -8,7 +8,7 @@ This project was created with inspiration from Rob Peck's project (https://githu
 * Ability to integrate hx711 load cell for bowl weight (keeps from over feeding)
 * Login required
 
-## Install required packages
+### Install required packages
 ```
 sudo apt update && sudo apt upgrade -y
 sudo apt install git -y
@@ -24,7 +24,7 @@ sudo pip3 install hx711
 sudo apt-get install pigpio
 sudo pigpiod
 ```
-## Give PHP permissions for python scripts
+### Give PHP permissions for python scripts
 ```
 sudo visudo
 ```
@@ -33,7 +33,7 @@ At the bottom of this file, append the following line and save
 www-data ALL=NOPASSWD: ALL
 ```
 
-## Configure mysql
+### Configure mysql
 ```
 sudo mysql_secure_installation
 ```
@@ -46,7 +46,7 @@ Type in Y to Remove test database and access to it
 Type in Y to Reload privilege tables now  
 
 
-## Edit mysql binded address
+### Edit mysql binded address
 ```
 sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
@@ -59,21 +59,21 @@ Restart mysql
 sudo service mysql restart
 ```
 
-## Set your rpi hostname to feeder (Don't skip this step, backend is setup to talk to this hostname)
+### Set your rpi hostname to feeder (Don't skip this step, backend is setup to talk to this hostname)
 ```
 sudo raspi-config
 ```
 Go to system options -> hostname  
 Set hostname to feeder and reboot  
 
-## Clone source code
+### Clone source code
 ```
 cd ~/
 git clone https://github.com/drewklein20/pet-feeder.git
 cd pet-feeder
 ```
 
-## Build DB schema (in pet-feeder dir)
+### Build DB schema (in pet-feeder dir)
 ```
 sudo mysql < schema.sql
 ```
@@ -89,15 +89,15 @@ FLUSH PRIVILEGES;
 exit;
 ```
 
-## Build website (in pet-feeder dir)
+### Build website (in pet-feeder dir)
 ```
 sudo chmod +x build.sh
 sudo ./build.sh
 ```
-## Login/config
+### Login/config
 Go to http://petfeeder.local and login with username 'admin' and password 'password'
 
-## Configuring Alexa
+### Configuring Alexa
 * Log into the feeder and enable Alexa in the settings
 * Go to https://sinric.com/ and create a free account
 * Copy the sinric API key ("Your API Key") and save it in the feeder settings for Sinric API Key
@@ -111,7 +111,7 @@ Go to http://petfeeder.local and login with username 'admin' and password 'passw
 
 To debug, run sudo python /var/www/html/php/alexaFeed.py (If configured correctly, you should see text logged when Alexa is triggered)
 
-## Enable scheduler with cron
+### Enable scheduler with cron
 ```
 sudo crontab -e
 ```
@@ -120,7 +120,7 @@ Add the following line to the bottom
 * * * * * sudo /usr/bin/python /var/www/html/php/cronFeed.py >> /var/www/html/php/cronLog.log 2>&1
 ```
 
-## Set proper timezone
+### Set proper timezone
 ```
 sudo raspi-config
 ```
