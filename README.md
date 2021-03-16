@@ -68,7 +68,7 @@ sudo mysql
 
 And enter each command below (don't modify the username or password unless you plan on changing the source code)
 ```
-USE FEEDER;
+USE Feeder;
 CREATE USER 'remote'@'localhost' IDENTIFIED BY 'PetFeeder2021!';
 CREATE USER 'remote'@'%' IDENTIFIED BY 'PetFeeder2021!';
 GRANT ALL PRIVILEGES ON * . * TO 'remote'@'localhost';
