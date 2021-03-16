@@ -133,7 +133,19 @@ Set your timezone under Localization Options (US central is what I used)
 ```
 sudo python scale-example.py
 ```
-* Now add the object to the scale
+* Now add the object to the scale and observe the new values. 
+* If the values are somewhat consistent, take one and divide it by your object's weight in kg). This value will be your reference unit.
+* Now edit the scale-example.py file and uncomment the following line and set it to your reference unit value.
+```
+#referenceUnit = 160
+```
+* Rerun the example file and verify your numbers are closer to 0
+* If you are seeing very random values the following was helpful to me
+  * verify all soldering was done correctly
+  * change the first parameter to "LSB" for the following line in the scale-example.py file
+    ```
+    hx.set_reading_format("MSB", "MSB")
+    ```
 
 
 
