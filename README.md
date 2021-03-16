@@ -52,7 +52,7 @@ restart mysql
 sudo service mysql restart
 ```
 
-## Set your rpi hostname to petfeeder
+## Set your rpi hostname to petfeeder (Don't skip this step, backend is setup to talk to this hostname)
 ```
 sudo raspi-config
 ```
