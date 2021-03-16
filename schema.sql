@@ -21,6 +21,7 @@
 
 DROP SCHEMA IF EXISTS `Feeder`;
 CREATE SCHEMA `Feeder`;
+USE `Feeder`;
 
 DROP TABLE IF EXISTS `Logs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
