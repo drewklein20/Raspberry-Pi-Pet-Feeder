@@ -17,7 +17,7 @@ mydb = mysql.connector.connect(
 
 dbcursor = mydb.cursor()
 dbcursor.execute(
-    "SELECT JSON_UNQUOTE(JSON_EXTRACT(preferences, '$.syncricAPI')) as api, JSON_UNQUOTE(JSON_EXTRACT(preferences, '$.syncricDeviceId')) as device FROM Feeder.Settings WHERE id = '1';"
+    "SELECT JSON_UNQUOTE(JSON_EXTRACT(preferences, '$.sinricAPI')) as api, JSON_UNQUOTE(JSON_EXTRACT(preferences, '$.sinricDeviceId')) as device FROM Feeder.Settings WHERE id = '1';"
 )
 dbresult = dbcursor.fetchone()
 
