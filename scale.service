@@ -1,0 +1,11 @@
+[Unit]
+Description=Feeder Scale
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /var/www/html/php/scale.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

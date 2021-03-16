@@ -1,0 +1,11 @@
+[Unit]
+Description=Alexa Feeder
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /var/www/html/php/alexaFeed.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
