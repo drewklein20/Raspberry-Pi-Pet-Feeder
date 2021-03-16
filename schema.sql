@@ -90,7 +90,7 @@ CREATE TABLE `Settings` (
 
 LOCK TABLES `Settings` WRITE;
 /*!40000 ALTER TABLE `Settings` DISABLE KEYS */;
-INSERT INTO `Settings` VALUES (1,'{\"defaultFeedAmount\":\"2.5\",\"name\":\"dog\",\"feederName\":\"Compu-Feed 2.0\",\"cupDuration\":\"3\",\"bowlWeight\":\"40\",\"fullBowlWeight\":\"600\",\"petName\":\"Millie\",\"username\":\"admin\",\"password\":\"password\",\"twoBowls\":false}');
+INSERT INTO `Settings` VALUES (1,'{"defaultFeedAmount":"2.5","name":"feeder","feederName":"pet feeder","cupDuration":"3","bowlWeight":"40","fullBowlWeight":"600","petName":"dog","username":"admin","password":"password","twoBowls":true,"isUsingAlexa":false,"isUsingScale":false,"sinricAPI":"","sinricDeviceId":""}');
 /*!40000 ALTER TABLE `Settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
