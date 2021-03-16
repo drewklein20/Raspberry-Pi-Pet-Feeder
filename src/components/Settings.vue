@@ -71,14 +71,14 @@
             </v-layout>
             <v-text-field
               v-if="settings.isUsingAlexa"
-              label="Sincric API Key"
+              label="Sinric API Key"
               placeholder=""
               v-model="settings.sinricAPI"
               outlined
             ></v-text-field>
             <v-text-field
               v-if="settings.isUsingAlexa"
-              label="Sincric Device ID"
+              label="Sinric Device ID"
               placeholder=""
               v-model="settings.sinricDeviceId"
               outlined
