@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo mysql
+USE FEEDER;
 CREATE USER 'remote'@'localhost' IDENTIFIED BY 'PetFeeder2021!';
 CREATE USER 'remote'@'%' IDENTIFIED BY 'PetFeeder2021!';
 GRANT ALL PRIVILEGES ON * . * TO 'remote'@'localhost';
