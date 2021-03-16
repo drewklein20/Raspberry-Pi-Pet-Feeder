@@ -63,8 +63,8 @@ sudo service mysql restart
 ```
 sudo raspi-config
 ```
-Go to system options -> hostname  
-Set hostname to feeder and reboot  
+* Go to system options -> hostname  
+* Set hostname to feeder and reboot  
 
 ### 6.) Clone source code
 ```
