@@ -78,17 +78,6 @@ cd pet-feeder
 ```
 sudo mysql < schema.sql
 ```
-Then run (don't modify the username or password unless you plan on changing the source code)
-```
-sudo mysql
-USE Feeder;
-CREATE USER 'remote'@'localhost' IDENTIFIED BY 'PetFeeder2021!';
-CREATE USER 'remote'@'%' IDENTIFIED BY 'PetFeeder2021!';
-GRANT ALL PRIVILEGES ON * . * TO 'remote'@'localhost';
-GRANT ALL ON *.* TO 'remote'@'%';
-FLUSH PRIVILEGES;
-exit;
-```
 
 ### 8.) Build website (in pet-feeder dir)
 ```
