@@ -97,7 +97,13 @@ Go to http://petfeeder.local and login with username 'admin' and password 'passw
 Log into the feeder and enable Alexa in the settings  
 Go to https://sinric.com/ and create a free account  
 Copy the synric API key ("Your API Key") and save it in the feeder settings for Synric API Key  
-Create a new smart home decice on the synric site (device type: switch). Copy the deviceId and save it in the feeder settings for Synric DeviceId
+Create a new smart home decice on the synric site (device type: switch)  
+Copy the deviceId and save it in the feeder settings for Synric DeviceId  
+Save the settings in the app  
+In the alexa app, add the sinric skill, then discover devices  
+Create a new routine that turns on the device you just created (don't worry about turning off)  
+Test the routine on your alexa device and verify the feeder runs  
+To debug, run sudo python /var/www/html/php/alexaFeed.py (If configured correctly, you should see text logged when Alexa is triggered)
 
 ## Enable scheduler with cron
 ```
