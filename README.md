@@ -46,7 +46,7 @@ Comment this line out with a #
 ```
 bind-address            = 127.0.0.1
 ```
-restart mysql
+Restart mysql
 ```
 sudo service mysql restart
 ```
