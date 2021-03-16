@@ -18,31 +18,35 @@ sudo pip3 install hx711
 ## Configure mysql
 ```
 sudo mysql_secure_installation
-	You will be asked Enter current password for root (type a secure password): press Enter
-	Type in Y and press Enter to Set root password
-	Type in a password at the New password: prompt, and press Enter. Important: remember this root password, as you will need it later
-	Type in Y to Remove anonymous users
-	Type in Y to Disallow root login remotely
-	Type in Y to Remove test database and access to it
-	Type in Y to Reload privilege tables now
 ```
+You will be asked Enter current password for root (type a secure password): press Enter
+Type in Y and press Enter to Set root password
+Type in a password at the New password: prompt, and press Enter. Important: remember this root password, as you will need it later
+Type in Y to Remove anonymous users
+Type in Y to Disallow root login remotely
+Type in Y to Remove test database and access to it
+Type in Y to Reload privilege tables now
+
 
 ### edit mysql binded address (obtain your IP first)
 ```
 sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
--- change the IP to your own and save
+```
+-change the IP to your own and save for this line
+```
 bind-address            = 127.0.0.1
-
--- restart mysql
+```
+restart mysql
+```
 sudo service mysql restart
 ```
 
 ### Set your rpi hostname to petfeeder
 ```
 sudo raspi-config
+```
 go to system options -> hostname 
 set hostname to petfeeder and reboot
-```
 
 ### Clone source code
 ```
