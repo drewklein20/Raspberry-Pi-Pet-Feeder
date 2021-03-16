@@ -32,7 +32,7 @@ Type in Y to Reload privilege tables now
 ```
 sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
--change the IP to your own and save for this line
+Change the IP to your own and save for this line
 ```
 bind-address            = 127.0.0.1
 ```
@@ -41,14 +41,14 @@ restart mysql
 sudo service mysql restart
 ```
 
-### Set your rpi hostname to petfeeder
+## Set your rpi hostname to petfeeder
 ```
 sudo raspi-config
 ```
-go to system options -> hostname 
-set hostname to petfeeder and reboot
+Go to system options -> hostname 
+Set hostname to petfeeder and reboot
 
-### Clone source code
+## Clone source code
 ```
 cd ~/
 sudo git clone https://github.com/drewklein20/pet-feeder.git
