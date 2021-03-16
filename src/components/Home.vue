@@ -2,7 +2,7 @@
   <v-container>
     <v-row dense>
       <v-col cols="12">
-        <v-card color="secondary" dark>
+        <v-card color="secondary" dark v-if="settings.isUsingScale">
           <v-card-title class="headline mb-3 dark-text">
             Current Bowl
             <v-spacer></v-spacer>
@@ -36,7 +36,7 @@
       <v-col cols="12" class="pt-4">
         <v-card color="primary" dark>
           <v-card-title class="headline mb-3">
-            {{settings.petName}} has eaten
+            {{settings.petName}} {{settings.twoBowls ? 'have' : 'has'}} eaten
           </v-card-title>
 
           <v-card-text class="pb-8">

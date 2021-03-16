@@ -16,10 +16,10 @@
           </v-col>
           <v-col>
             <v-layout align-center justify-center>
-            <v-checkbox
-              v-model="settings.twoBowls"
-              :label="`Two Bowls`"
-            ></v-checkbox>
+              <v-checkbox
+                v-model="settings.twoBowls"
+                :label="`Two Bowls`"
+              ></v-checkbox>
             </v-layout>
           </v-col>
         </v-row>
@@ -33,7 +33,7 @@
             ></v-text-field>
           </v-col>
           <v-col>
-           <v-text-field
+            <v-text-field
               label="Password"
               placeholder=""
               v-model="settings.password"
@@ -51,7 +51,40 @@
             ></v-text-field>
           </v-col>
           <v-col>
+            <v-text-field
+              label="1 Cup Duration (seconds)"
+              placeholder=""
+              type="number"
+              v-model="settings.cupDuration"
+              outlined
+            ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col>
+            <v-layout align-center justify-center>
+              <v-switch
+                v-model="settings.isUsingAlexa"
+                label="Alexa"
+              ></v-switch>
+            </v-layout>
+            <v-text-field
+              v-if="settings.isUsingAlexa"
+              label="Sincric API Key"
+              placeholder=""
+              v-model="settings.sinricAPI"
+              outlined
+            ></v-text-field>
+            <v-text-field
+              v-if="settings.isUsingAlexa"
+              label="Sincric Device ID"
+              placeholder=""
+              v-model="settings.sinricDeviceId"
+              outlined
+            ></v-text-field>
             <v-select
+              v-if="settings.isUsingAlexa"
               v-model="settings.defaultFeedAmount"
               :items="amounts"
               type="number"
@@ -61,24 +94,19 @@
               outlined
             ></v-select>
           </v-col>
-        </v-row>
-
-        <v-row class=" pt-2">
           <v-col>
+            <v-layout align-center justify-center>
+              <v-switch
+                v-model="settings.isUsingScale"
+                label="Scale"
+              ></v-switch>
+            </v-layout>
             <v-text-field
+              v-if="settings.isUsingScale"
               label="Full Bowl Weight (g)"
               placeholder=""
               type="number"
               v-model="settings.fullBowlWeight"
-              outlined
-            ></v-text-field>
-          </v-col>
-          <v-col>
-            <v-text-field
-              label="1 Cup Duration (seconds)"
-              placeholder=""
-              type="number"
-              v-model="settings.cupDuration"
               outlined
             ></v-text-field>
           </v-col>
@@ -103,7 +131,7 @@
               </v-tooltip>
             </v-layout>
           </v-col>
-           <v-col>
+          <v-col>
             <v-layout align-center justify-center class="pt-2">
               <v-btn
                 rounded
@@ -159,6 +187,10 @@ export default {
       defaultFeedAmount: 1,
       fullBowlWeight: 0.0,
       cupDuration: 3.0,
+      isUsingScale: false,
+      isUsingAlexa: false,
+      syncricAPI: "",
+      syncricDeviceId: "",
     },
     isUpdating: false,
   }),
@@ -180,7 +212,8 @@ export default {
   methods: {
     fetchData() {
       let apiUrl =
-        process.env.VUE_APP_BACKEND_URL + "?action=feeder_settings&id=" +
+        process.env.VUE_APP_BACKEND_URL +
+        "?action=feeder_settings&id=" +
         this.feederId;
       this.axios.get(apiUrl, {}).then((response) => {
         this.settings = JSON.parse(response.data[0].preferences);
