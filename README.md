@@ -77,7 +77,6 @@ cd pet-feeder
 ### 7.) Build DB schema (in pet-feeder dir)
 ```
 sudo mysql < schema.sql
-sudo mysql < user.sql
 ```
 
 ### 8.) Build website (in pet-feeder dir)
