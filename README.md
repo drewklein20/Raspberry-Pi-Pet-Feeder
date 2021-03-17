@@ -9,6 +9,8 @@ This project was created with inspiration from Rob Peck's project (https://githu
 * Ability to integrate hx711 load cell for bowl weight (keeps from over feeding)
 * Authentication
 
+![Optional Text](../master/screenshots/1.png)
+
 ## Required Parts
 * Raspberry pi (I used a raspberry pi zero w) running raspian buster
 * Cereal dispenser [amazon](https://www.amazon.com/Honey-Can-Do-Dispenser-Single-Control-Chrome/dp/B00013K8O4/ref=sr_1_2?dchild=1&keywords=cereal+dispenser+single&qid=1595785048&sr=8-2)  
