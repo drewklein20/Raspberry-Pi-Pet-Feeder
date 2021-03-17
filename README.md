@@ -8,11 +8,12 @@ This project was created with inspiration from Rob Peck's project (https://githu
 * Trigger with Alexa
 * Ability to integrate hx711 load cell for bowl weight (keeps from over feeding)
 * Authentication
+![1](https://user-images.githubusercontent.com/21964743/111547226-d2430480-8746-11eb-94c9-4704c1b65c43.png)
+![2](https://user-images.githubusercontent.com/21964743/111547227-d2db9b00-8746-11eb-955f-82c2f4d3681b.png)
+![3](https://user-images.githubusercontent.com/21964743/111547229-d2db9b00-8746-11eb-98fe-acf8b09fae75.png)
+![4](https://user-images.githubusercontent.com/21964743/111547230-d2db9b00-8746-11eb-8b46-7b7af69e97a9.png)
+![5](https://user-images.githubusercontent.com/21964743/111547231-d3743180-8746-11eb-8058-2e5eb90eba2e.png)
 
-![1](https://user-images.githubusercontent.com/21964743/111546567-de7a9200-8745-11eb-9b34-6f1579d97062.png)![2](https://user-images.githubusercontent.com/21964743/111546660-00741480-8746-11eb-84eb-71acccee957d.png)
-![3](https://user-images.githubusercontent.com/21964743/111546661-010cab00-8746-11eb-89b1-4c2004249009.png)
-![4](https://user-images.githubusercontent.com/21964743/111546663-010cab00-8746-11eb-8415-a565ee0e3d8c.png)
-![5](https://user-images.githubusercontent.com/21964743/111546664-01a54180-8746-11eb-89a3-58baecfb4ea0.png)
 
 
 
