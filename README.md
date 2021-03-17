@@ -14,6 +14,7 @@ This project was created with inspiration from Rob Peck's project (https://githu
 ![3](https://user-images.githubusercontent.com/21964743/111547229-d2db9b00-8746-11eb-98fe-acf8b09fae75.png)
 ![4](https://user-images.githubusercontent.com/21964743/111547230-d2db9b00-8746-11eb-8b46-7b7af69e97a9.png)
 ![5](https://user-images.githubusercontent.com/21964743/111547231-d3743180-8746-11eb-8058-2e5eb90eba2e.png)
+![6](https://user-images.githubusercontent.com/21964743/111547426-2221cb80-8747-11eb-93cd-e86857930051.png)
 
 ## Required Parts
 * Raspberry pi (I used a raspberry pi zero w) running raspian buster
