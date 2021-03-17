@@ -9,6 +9,27 @@ This project was created with inspiration from Rob Peck's project (https://githu
 * Ability to integrate hx711 load cell for bowl weight (keeps from over feeding)
 * Authentication
 
+## Required Parts
+* Raspberry pi (I used a raspberry pi zero w) running raspian buster
+* Cereal dispenser [amazon](https://www.amazon.com/Honey-Can-Do-Dispenser-Single-Control-Chrome/dp/B00013K8O4/ref=sr_1_2?dchild=1&keywords=cereal+dispenser+single&qid=1595785048&sr=8-2)  
+* 360 Servo [amazon](https://www.amazon.com/American-Robotic-Supply-Continuous-Rotation/dp/B01MSAIL3D/ref=sr_1_8?dchild=1&keywords=360+servo&qid=1595785295&sr=8-8.)
+* Scale (optional) [amazon](https://www.amazon.com/MakerHawk-Converter-Breakout-Portable-Electronic/dp/B07GQPV6C4/ref=sr_1_2?dchild=1&keywords=hx711+scale&qid=1616004621&sr=8-2)
+
+## Building the feeder
+I won't go into detailed instructions for how to build the feeder. If you are looking for an example, check out Rob Peck's project (https://github.com/peckrob/petfeedd).
+
+### Wiring servo
+* Attach the ground wire to GND on the Raspberry Pi. 
+* Attach the signal wire to the GPIO 17 pin on the Raspberry Pi.
+* Attach the power pin to 5V on the Raspberry Pi.
+
+### Wiring scale
+* Attach the ground wire to GND on the Raspberry Pi.
+* Attach the DT wire to the GPIO 5 pin on the Raspberry Pi.
+* Attach the SCK wire to the GPIO 6 pin on the Raspberry Pi.
+* Attach the power pin to 5V on the Raspberry Pi.
+
+## RPI setup
 ### 1.) Install required packages
 ```
 sudo apt update && sudo apt upgrade -y
@@ -77,7 +98,7 @@ git clone https://github.com/drewklein20/pet-feeder.git
 ```
 cd pet-feeder
 sudo chmod +x build.sh
-sudo ./build.sh
+sudo bash -x build.sh
 ```
 
 ### 8.) Login/config
@@ -128,8 +149,8 @@ sudo python scale-example.py
 * Remove the weight and rerun the example file and verify your numbers are closer to 0. Then apply the weight and verify you are seeing correct numbers.
 * If you are seeing the correct numbers, change the reference unit in the app settings and save.
 * If you are seeing very random values the following was helpful to me
-  * verify all soldering was done correctly
-  * change the first parameter to "LSB" for the following line in the scale-example.py file
+  * Verify all soldering was sufficient or pins are making contact.
+  * Change the first parameter to "LSB" for the following line in the scale-example.py file.
     ```
     hx.set_reading_format("MSB", "MSB")
     ```
