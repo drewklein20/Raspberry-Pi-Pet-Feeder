@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#Hostname substitution
+ ( shopt -s globstar dotglob;
+     for file in **; do
+         if [[ -f $file ]] && [[ -w $file ]]; then
+             sed -i -- 's/[replace-me]/feeder/g' "$file"
+         fi
+     done
+ )
+
 sudo service mysql restart
 sudo mysql -u root -pPetFeeder2021! < schema.sql
 
