@@ -10,11 +10,11 @@ echo "Build Type: $buildType";
 
 echo "Building Pet Feeder";
 
-echo -ne 'Creating DB schema';
+echo -ne 'Creating DB schema \r';
 sudo service mysql restart
 sudo mysql -u root -pPetFeeder2021! < schema.sql
 
-echo -ne 'Copying webserver files';
+echo -ne 'Copying webserver files \r';
 sudo rm -rf /var/www/html/*
 sudo cp -r dist/* /var/www/html/
 sudo mkdir /var/www/html/php
@@ -25,7 +25,7 @@ addgroup www-data
 sudo chown -R www-data:www-data /var/www/html/*
 sudo chmod -R 770 /var/www/ /var/www/html/*
 
-echo -ne 'Creating Alexa and Scale Services';
+echo -ne 'Creating Alexa and Scale Services \r';
 sudo rm /lib/systemd/system/scale.service
 sudo rm /lib/systemd/system/alexa.service
 sudo cp *.service /lib/systemd/system/
@@ -42,7 +42,7 @@ sudo systemctl start scale.service
 sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
 
-echo -ne 'Substituting hostname';
+echo -ne 'Substituting hostname \r';
 CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
 # Hostname substitution
 cd /var/www/html/
