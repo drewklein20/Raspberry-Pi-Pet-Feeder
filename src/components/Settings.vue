@@ -58,7 +58,7 @@
                     label="Left Bowl Offset (seconds)"
                     placeholder=""
                     type="number"
-                    v-model="settings.cupDuration"
+                    v-model="settings.leftBowlOffset"
                     outlined
                   ></v-text-field>
                 </v-col>
@@ -68,7 +68,7 @@
                     label="Right Bowl Offset (seconds)"
                     placeholder=""
                     type="number"
-                    v-model="settings.cupDuration"
+                    v-model="settings.rightBowlOffset"
                     outlined
                   ></v-text-field>
                 </v-col>
