@@ -28,12 +28,12 @@ This project was created with inspiration from Rob Peck's project (https://githu
 ## Building the feeder
 I won't go into detailed instructions for how to build the feeder. If you are looking for an example, check out Rob Peck's project (https://github.com/peckrob/petfeedd).
 
-### Wiring servo
+### 1.) Wiring servo
 * Attach the ground wire to GND on the Raspberry Pi. 
 * Attach the signal wire to the GPIO 17 pin on the Raspberry Pi.
 * Attach the power pin to 5V on the Raspberry Pi.
 
-### Wiring scale
+### 2.) Wiring scale
 * Attach the ground wire to GND on the Raspberry Pi.
 * Attach the DT wire to the GPIO 5 pin on the Raspberry Pi.
 * Attach the SCK wire to the GPIO 6 pin on the Raspberry Pi.
@@ -167,5 +167,17 @@ sudo python scale-example.py
     ```
 ---
 ## Developing further
-
-
+*Note: You will need to have npm installed.
+If you are feeling like building onto the app, or making changes to the code. You can do so by running the following in the src folder:
+```
+npm run serve
+```
+Then when you are finished, run the following to compile the code:
+```
+npm run build
+```
+And finally, rerun the following to re-build the webserver:
+```
+sudo chmod +x build.sh
+sudo bash -x build.sh
+```
