@@ -4,7 +4,7 @@
  ( shopt -s globstar dotglob;
      for file in **; do
          if [[ -f $file ]] && [[ -w $file ]]; then
-             sed -i -- 's/[replace-me]/feeder/g' "$file"
+             sed -i -- 's/feederhostname/feeder/g' "$file"
          fi
      done
  )
