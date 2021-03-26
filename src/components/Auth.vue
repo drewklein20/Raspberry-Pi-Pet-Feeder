@@ -1,7 +1,8 @@
 <template>
   <v-container>
     <v-layout align-center justify-center>
-    <div class="page-title">Pet Feeder</div>
+
+      <v-img :src="require('../assets/compu-feed.png')" height="300" width="150" contain class="mb-8"></v-img>
     </v-layout>
     <v-card class="mx-auto" max-width="400">
       <v-card-title>

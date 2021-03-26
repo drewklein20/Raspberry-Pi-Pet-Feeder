@@ -504,3 +504,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.v-expansion-panel-header div {
+  flex: none;
+}
+</style>
