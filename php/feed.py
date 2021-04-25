@@ -113,19 +113,17 @@ def feed():
     speedSetting = preferences["speed"]
     speed = 2000
 
-    match speedSetting:
-        case "1":
-            speed = 1600
-        case "2":
-            speed = 1700
-        case "3":
-            speed = 1800
-        case "4":
-            speed = 1900
-        case "5":
-            speed = 2000
-        case _:
-            speed = 2000
+    if speedSetting == "1":
+        speed = 1600
+    if speedSetting == "2":
+        speed = 1700
+    if speedSetting == "3":
+        speed = 1800
+    if speedSetting == "4":
+        speed = 1900
+    if speedSetting == "5":
+        speed = 2000
+   
     emailNotifications = preferences["emailNotifications"]
     cameraEnabled = preferences["isUsingCamera"]
     emailConfig = preferences["emailConfig"]
