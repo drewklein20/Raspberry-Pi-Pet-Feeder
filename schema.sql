@@ -98,7 +98,7 @@ DROP TABLE IF EXISTS `petWeights`;
 
 CREATE TABLE `Feeder`.`petWeights` (
   `id` INT NOT NULL,
-  `value` INT(11) NOT NULL,
+  `value` DOUBLE NOT NULL,
   `timestamp` DATETIME NULL DEFAULT NOW(),
   PRIMARY KEY (`id`));
 

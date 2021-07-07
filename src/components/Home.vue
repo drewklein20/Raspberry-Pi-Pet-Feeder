@@ -73,39 +73,39 @@
                 <v-tooltip top>
                   <template v-slot:activator="{ on, attrs }">
                     <v-col class="light-text" v-bind="attrs" v-on="on">
-                      {{ totalWeight }}
+                      {{ totalFoodWeight }}
                       <v-icon class="ml-2" color="secondary" dark>
                         mdi-cup
                       </v-icon>
                     </v-col>
                   </template>
-                  <span>{{ totalWeight }} cups of dog food</span>
+                  <span>{{ totalFoodWeight }} cups of dog food</span>
                 </v-tooltip>
                 <v-tooltip top>
                   <template v-slot:activator="{ on, attrs }">
                     <v-col class="light-text" v-bind="attrs" v-on="on">
-                      {{ (totalWeight / cupsPerBag).toFixed(2) }}
+                      {{ (totalFoodWeight / cupsPerBag).toFixed(2) }}
                       <v-icon class="ml-2" color="secondary" dark>
                         mdi-sack
                       </v-icon>
                     </v-col>
                   </template>
                   <span
-                    >{{ (totalWeight / cupsPerBag).toFixed(2) }} bags of dog
+                    >{{ (totalFoodWeight / cupsPerBag).toFixed(2) }} bags of dog
                     food</span
                   >
                 </v-tooltip>
                 <v-tooltip top>
                   <template v-slot:activator="{ on, attrs }">
                     <v-col class="light-text" v-bind="attrs" v-on="on">
-                      {{ (totalWeight / cupsPerBag / 3000).toFixed(2) }}
+                      {{ (totalFoodWeight / cupsPerBag / 3000).toFixed(2) }}
                       <v-icon class="ml-2" color="secondary" dark>
                         mdi-car-pickup
                       </v-icon>
                     </v-col>
                   </template>
                   <span>
-                    {{ (totalWeight / cupsPerBag / 3000).toFixed(2) }} truck
+                    {{ (totalFoodWeight / cupsPerBag / 3000).toFixed(2) }} truck
                     loads of dog food</span
                   >
                 </v-tooltip>
@@ -205,7 +205,8 @@ export default {
   data: () => ({
     cupsPerBag: 160,
     datacollection: null,
-    weights: [],
+    scaleweights: [],
+    petWeights: [],
     scheduledFeeds: [],
     logs: [],
     intervalId: "",
@@ -232,13 +233,25 @@ export default {
   },
   computed: {
     weightLabels() {
-      return this.weights.map((a) =>
+      return this.scaleWeights.map((a) =>
         this.$options.filters.formatDateTime2(String(a.timestamp))
       );
     },
     weightValues() {
-      if (this.weights.length) {
-        return this.weights.map((a) => parseInt(a.value));
+      if (this.scaleWeights.length) {
+        return this.scaleWeights.map((a) => parseInt(a.value));
+      } else {
+        return [];
+      }
+    },
+    petWeightLabels() {
+      return this.petWeights.map((a) =>
+        this.$options.filters.formatDateTime2(String(a.timestamp))
+      );
+    },
+    petWeightValues() {
+      if (this.petWeights.length) {
+        return this.petWeights.map((a) => parseInt(a.value));
       } else {
         return [];
       }
@@ -246,7 +259,7 @@ export default {
     currentImg() {
       return process.env.VUE_APP_CAM_RESOURCES + "live.jpg";
     },
-    totalWeight() {
+    totalFoodWeight() {
       let sum = 0;
 
       for (let element of this.logs) {
@@ -368,12 +381,12 @@ export default {
     },
     fillData() {
       this.datacollection = {
-        labels: this.weightLabels,
+        labels: this.scaleWeightLabels,
         datasets: [
           {
             label: "Bowl Weight",
             backgroundColor: "#f87979",
-            data: this.weightValues,
+            data: this.scaleWeightValues,
           },
         ],
       };
@@ -392,12 +405,12 @@ export default {
     async fetchData() {
       let apiUrl =
         process.env.VUE_APP_BACKEND_URL +
-        "?action=all_weights&timeUnit=" +
+        "?action=all_scale_weights&timeUnit=" +
         this.timeUnit +
         "&interval=" +
         this.interval;
       this.axios.get(apiUrl, {}).then((response) => {
-        this.weights = response.data;
+        this.scaleWeights = response.data;
         this.fillData();
       });
 

@@ -64,7 +64,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($rc) {
                 echo "Removed scheduled feed";
             } else {
-                echo "There was an error dispensing the food..";
+                echo "There was an error removing the scheduled feed..";
+            }
+            break;
+        case 'add_pet_weight':
+            $sql = "INSERT INTO `Feeder`.`petWeight` (`value`) VALUES ('" . $amount . "')";
+            $rc = execQuery($sql);
+            if ($rc) {
+                echo "Adding pet weight.";
+            } else {
+                echo "There was an error adding the weight..";
+            }
+            break;
+        case 'delete_pet_weight':
+            $sql = "DELETE FROM `Feeder`.`petWeights` WHERE (`id` = '" . $id . "')";
+            $rc = execQuery($sql);
+            if ($rc) {
+                echo "Removed pet weight";
+            } else {
+                echo "There was an error deleting the pet weight..";
             }
             break;
         case 'update_preferences':
@@ -113,14 +131,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo json_encode($results);
 
             break;
-        case 'current_weight':
+        case 'current_scale_weight':
             $sql = "SELECT * FROM scaleWeights ORDER BY timestamp desc limit 1;";
             $results = queryDB($sql);
             echo json_encode($results);
 
             break;
-        case 'all_weights':
+        case 'all_scale_weights':
             $sql = "SELECT * FROM scaleWeights WHERE timestamp > date_sub(now(), interval " . $interval . " " . $timeUnit . ")  ORDER BY timestamp asc;";
+            $results = queryDB($sql);
+            echo json_encode($results);
+
+            break;
+        case 'current_pet_weight':
+            $sql = "SELECT * FROM petWeights ORDER BY timestamp desc limit 1;";
+            $results = queryDB($sql);
+            echo json_encode($results);
+
+            break;
+        case 'all_pet_weights':
+            $sql = "SELECT * FROM petWeights WHERE timestamp  ORDER BY timestamp desc > date_sub(now(), interval " . $interval . " " . $timeUnit . ")  ORDER BY timestamp asc;";
             $results = queryDB($sql);
             echo json_encode($results);
 

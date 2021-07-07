@@ -85,7 +85,7 @@ export default {
       { title: "Settings", icon: "mdi-cog-outline" },
     ],
     mini: true,
-    weight: [],
+    scaleWeights: [],
     settings: {
       petName: "",
       twoBowls: false,
@@ -109,8 +109,8 @@ export default {
     weightInGrams() {
       let weightVal = "0";
 
-      if (this.weight.length) {
-        weightVal = this.weight[0].value < 0 ? "0" : this.weight[0].value;
+      if (this.scaleWeights.length) {
+        weightVal = this.scaleWeights[0].value < 0 ? "0" : this.scaleWeights[0].value;
       }
 
       return weightVal;
@@ -118,8 +118,8 @@ export default {
     weightPercentage() {
       let weightVal = "0";
 
-      if (this.weight.length) {
-        weightVal = this.weight[0].value < 0 ? 0 : this.weight[0].value;
+      if (this.scaleWeights.length) {
+        weightVal = this.scaleWeights[0].value < 0 ? 0 : this.scaleWeights[0].value;
       }
 
       return ((weightVal / this.settings.fullBowlWeight) * 100).toFixed(0);
@@ -137,9 +137,9 @@ export default {
       this.selectedDrawerItem = value;
     },
     fetchData() {
-      let apiUrl = process.env.VUE_APP_BACKEND_URL + "?action=current_weight";
+      let apiUrl = process.env.VUE_APP_BACKEND_URL + "?action=current_scale_weight";
       this.axios.get(apiUrl, {}).then((response) => {
-        this.weight = response.data;
+        this.scaleWeights = response.data;
       });
 
       apiUrl = process.env.VUE_APP_BACKEND_URL + "?action=feeder_settings&id=1";
