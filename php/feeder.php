@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             break;
         case 'add_pet_weight':
-            $sql = "INSERT INTO `Feeder`.`petWeight` (`value`) VALUES ('" . $amount . "')";
+            $sql = "INSERT INTO `Feeder`.`petWeights` (`value`) VALUES ('" . $amount . "')";
             $rc = execQuery($sql);
             if ($rc) {
                 echo "Adding pet weight.";

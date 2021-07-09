@@ -56,4 +56,15 @@ export default {
     color: #afcbff !important;
   }
 }
+
+.secondary-btn {
+  .v-btn__content {
+  color: #afcbff;
+  
+  .v-icon {
+    color: #afcbff !important;
+  }
+}
+
+}
 </style>

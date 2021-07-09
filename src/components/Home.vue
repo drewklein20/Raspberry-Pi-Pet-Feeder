@@ -172,8 +172,37 @@
             </v-card-actions>
           </v-card>
         </v-col>
+        <v-col cols="12" class="pt-4">
+          <v-card color="primary" dark>
+            <v-card-title class="headline">
+              Weight History
+              <v-spacer></v-spacer>
+              Current Weight
+            </v-card-title>
+
+            <v-card-text class="pb-8">
+              <v-row>
+              </v-row>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                class="ml-2 mt-1 mb-3 secondary-btn"
+                outlined
+                color="secondary"
+                rounded
+                small
+                @click="isShowingAddWeight = true"
+              >
+                Add Entry
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
       </v-row>
     </v-container>
+
     <v-dialog v-model="isPreviewingImg" max-width="600px">
       <v-card>
         <v-img
@@ -187,16 +216,20 @@
     <v-dialog v-model="isShowingFeedNow" max-width="400px">
       <feed></feed>
     </v-dialog>
+    <v-dialog v-model="isShowingAddWeight" max-width="400px">
+      <add-weight></add-weight>
+    </v-dialog>
   </div>
 </template>
 
 <script>
 import moment from "moment";
 import feed from "../components/Feed";
+import AddWeight from './AddWeight.vue';
 
 export default {
   name: "Home",
-  components: { feed },
+  components: { feed, AddWeight },
   props: {
     currentWeight: { type: String, required: false },
     currentPercentage: { type: String, required: false },
@@ -219,6 +252,7 @@ export default {
     cacheKey: +new Date(),
     imgInterval: "",
     isShowingFeedNow: false,
+    isShowingAddWeight: false,
   }),
   async mounted() {
     await this.fetchData();

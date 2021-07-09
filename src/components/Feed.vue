@@ -22,21 +22,6 @@
             </template>
           </v-select>
 
-          <!-- <v-select
-                  :items="versions"
-                  v-model="selectedVersion"
-                  @change="changeTranscript"
-                  solo
-                >
-                <template v-slot:selection="data">
-                  <span class="transcript-dialog__alternate-text">{{ data.item.text }} {{isAutoSaved(data.item.value) ? '(Autosaved)' : ''}}</span>
-                  <v-icon class="ml-2" v-if="isTranscriptPrimary(data.item.value)">closed_caption</v-icon>
-                </template>
-                <template v-slot:item="data">
-                  <span class="transcript-dialog__alternate-text">{{ data.item.text }} {{isAutoSaved(data.item.value) ? '(Autosaved)' : ''}}</span>
-                  <v-icon class="ml-2" v-if="isTranscriptPrimary(data.item.value)">closed_caption</v-icon>
-                </template>
-                </v-select> -->
         </v-col>
 
         <v-col>
@@ -104,11 +89,6 @@ export default {
         this.isFeeding = false;
         self.feedResult = "";
       });
-
-      // var self = this;
-      // setTimeout(() => {
-      //   self.feedResult = "";
-      // }, 5000);
     },
   },
 };
