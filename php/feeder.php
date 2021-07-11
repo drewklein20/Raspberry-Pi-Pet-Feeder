@@ -76,6 +76,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "There was an error adding the weight..";
             }
             break;
+        case 'edit_pet_weight':
+            $sql = "  UPDATE `Feeder`.`petWeights` SET `value` = '" . $amount . "' WHERE (`id` = '" . $id . "')";
+            $rc = execQuery($sql);
+            if ($rc) {
+                echo "Updating pet weight.";
+            } else {
+                echo "There was an error adding the weight..";
+            }
+            break;
         case 'delete_pet_weight':
             $sql = "DELETE FROM `Feeder`.`petWeights` WHERE (`id` = '" . $id . "')";
             $rc = execQuery($sql);

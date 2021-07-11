@@ -181,11 +181,27 @@
             </v-card-title>
 
             <v-card-text class="pb-8">
-              <v-row>
-              </v-row>
+               <div class="feed-times">
+                  <span style="color: white;" class="feed-time">
+                 
+                  </span>
+                  <span style="color: white;" class="feed-time align-right">
+                  {{currentPetWeightValue}} lbs
+                  </span>
+               </div>
             </v-card-text>
 
             <v-card-actions>
+              <v-btn
+                class="ml-2 mt-1 mb-3 secondary-btn"
+                outlined
+                color="secondary"
+                rounded
+                small
+                @click="$emit('clickedDrawer', 'Weight Log')"
+              >
+                View Log
+              </v-btn>
               <v-spacer></v-spacer>
               <v-btn
                 class="ml-2 mt-1 mb-3 secondary-btn"
@@ -226,6 +242,7 @@
 import moment from "moment";
 import feed from "../components/Feed";
 import AddWeight from './AddWeight.vue';
+import _ from "lodash";
 
 export default {
   name: "Home",
@@ -410,6 +427,14 @@ export default {
         return null;
       }
     },
+    currentPetWeightValue() {
+      if (!_.isNil(this.currentPetWeight) && this.currentPetWeight.length) {
+        return this.currentPetWeight[0].value
+      } else {
+        return 0;
+      }
+
+    }
   },
   methods: {
     openPreview() {

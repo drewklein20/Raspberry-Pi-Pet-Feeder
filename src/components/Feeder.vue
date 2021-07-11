@@ -51,6 +51,7 @@
     <div class="main-content">
       <feed v-if="selectedDrawerItem == 'Feed Now'" />
       <feed-log v-if="selectedDrawerItem == 'Feed Log'" />
+      <pet-weights v-if="selectedDrawerItem == 'Weight Log'" />
       <schedule v-if="selectedDrawerItem == 'Scheduler'" />
       <home
         v-if="selectedDrawerItem == 'Home'"
@@ -67,11 +68,13 @@
 <script>
 import Feed from "./Feed.vue";
 import FeedLog from "./FeedLog.vue";
+import PetWeights from "./PetWeights.vue"
 import Schedule from "./Schedule.vue";
 import Settings from "./Settings.vue";
 import Home from "./Home.vue";
+
 export default {
-  components: { FeedLog, Feed, Schedule, Settings, Home },
+  components: { FeedLog, PetWeights, Feed, Schedule, Settings, Home },
   name: "Feeder",
 
   data: () => ({
@@ -81,6 +84,7 @@ export default {
       { title: "Home", icon: "mdi-dog" },
       { title: "Feed Now", icon: "mdi-bowl" },
       { title: "Feed Log", icon: "mdi-table" },
+      { title: "Weight Log", icon: "mdi-table" },
       { title: "Scheduler", icon: "mdi-calendar" },
       { title: "Settings", icon: "mdi-cog-outline" },
     ],
